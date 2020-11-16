@@ -5,6 +5,18 @@
         <v-col cols="12" sm="10" md="8" lg="7">
           <v-row>
             <v-col cols="12">
+              <v-alert
+                border="left"
+                elevation="4"
+                colored-border
+                color="primary"
+                dismissible
+              >
+                To Listen to your songs, Go to
+                <v-btn text color="primary"> player </v-btn>
+              </v-alert>
+            </v-col>
+            <v-col cols="12">
               <v-text-field
                 v-model="search"
                 solo
@@ -17,22 +29,28 @@
                 :headers="headers"
                 :items="musics"
                 :search="search"
-                :items-per-page="5"
-                class="elevation-2"
+                :items-per-page="10"
+                class="elevation-4"
               >
                 <template v-slot:top>
                   <v-toolbar dense flat>
-                    <v-toolbar-title class="title"> All Songs </v-toolbar-title>
+                    <v-toolbar-title
+                      class="font-weight-bold hidden-sm-and-down"
+                    >
+                      All Musics
+                    </v-toolbar-title>
                     <v-spacer />
                     <v-dialog v-model="newItem" max-width="500px" persistent>
                       <template v-slot:activator="{ attrs, on }">
                         <v-btn
                           depressed
+                          small
                           color="primary"
                           v-bind="attrs"
                           v-on="on"
                         >
-                          Add Song
+                          <v-icon class="pr-1">mdi-plus-circle</v-icon>
+                          New Song
                         </v-btn>
                       </template>
                       <v-card>
@@ -62,6 +80,8 @@
                                 <v-file-input
                                   id="music-file"
                                   show-size
+                                  hint="File size must not be more than 10MB"
+                                  persistent-hint
                                   label="Music file"
                                   prepend-icon="mdi-animation-play"
                                   :rules="[

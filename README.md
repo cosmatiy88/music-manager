@@ -1,2 +1,6 @@
 # music-manager
-A CRUD web app built using MEVN stack. Repo contains both Clientside - Vue, Nuxtjs, Vuetify and Serverside - Node, Expressjs, MongoDB files
+
+A Music manager web app with player built using MEVN stack
+
+Clientside - Vue, Nuxtjs, Vuetify
+Serverside - Node, Expressjs, MongoDB files

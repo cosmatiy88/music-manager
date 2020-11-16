@@ -17,7 +17,7 @@ let musicSchema = mongoose.Schema({
   },
   created: {
     type: Date,
-    default: Date.now()
+    default: new Date().toISOString()
   }
 })
 

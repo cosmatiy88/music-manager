@@ -6,7 +6,7 @@
           :headers="headers"
           :items="musics"
           :search="search"
-          :items-per-page="5"
+          :items-per-page="10"
           class="elevation-2"
         >
           <template v-slot:top>
@@ -168,11 +168,6 @@ export default {
       const sec = this.duration - min * 60
       return `${min}:${sec < 10 ? '0' : ''}${sec}`
     },
-  },
-  mounted() {
-    this.$nuxt.$emit('setLayoutProperties', {
-      routePath: this.$router.currentRoute.path,
-    })
   },
   methods: {
     async playMusic(item) {
